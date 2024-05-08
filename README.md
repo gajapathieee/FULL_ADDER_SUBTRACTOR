@@ -71,30 +71,20 @@ Write the detailed procedure here
 /* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
 
 ~~~
+module EX04(a,b,c,sum,carry,BO,DIFF);
+input a,b,c;
+output sum,carry,BO,DIFF;
 
-## Full_adder
-module fulladd_top(a,b,cin,sum,carry);
-input a,b,cin;
-output sum,carry;
-wire w1,w2,w3,w4;       
-xor(w1,a,b);
-xor(sum,w1,cin);        
+//FULL ADDER
+assign sum = a^b^c;
+assign carry = (a&b) | (b&c) | (a&c);
+wire a0;
+not (a0,a);
 
-and(w2,a,b);
-and(w3,b,cin);
-and(w4,cin,a);
-
-or(carry,w2,w3,w4);
-endmodule 
-
-## Full_subtractor
-module fullsub_top(a,b,Bin,BO,DIFF);
-input a,b,Bin;
-output BO,DIFF;
-assign DIFF = a ^ b ^ Bin;
-  assign BO = (a & b) | ((a ^ b) & Bin);
+//FULL SUBTRACTOR
+assign DIFF = a^b^c;
+assign BO = (a0&b) | (b&c) | (a0&c);
 endmodule
-
 
 Developed by: VARSHA A
 RegisterNumber: 212223220121
@@ -103,18 +93,12 @@ RegisterNumber: 212223220121
 */
 
 **RTL Schematic**
+![319868212-dd1e51fc-abd7-44f5-8d73-0f6f4fdd094c](https://github.com/04Varsha/FULL_ADDER_SUBTRACTOR/assets/149035374/e9367f12-3106-4725-a02e-344208308090)
 
-![318332382-c01e6c3c-d648-4bad-8a98-66d93df13f1a](https://github.com/04Varsha/FULL_ADDER_SUBTRACTOR/assets/149035374/2e45d893-4f83-4a98-8bc2-d0d30b70e7e2)
 
 **Output Timing Waveform**
 
-**FULL ADDER**
-
-![318332443-3411cbc7-4f76-4664-a513-e348a9880eff](https://github.com/04Varsha/FULL_ADDER_SUBTRACTOR/assets/149035374/5d286c1d-e62e-454a-a389-00ba2c2a91fc)
-
-**FULL SUBTRACTOR**
-
-![318332487-1cc068c4-6398-4a52-bae8-39c6657c0a9a](https://github.com/04Varsha/FULL_ADDER_SUBTRACTOR/assets/149035374/03d5d030-815e-4847-a976-2fd282cf0333)
+![319868238-3a36db2b-a242-424a-b175-f5a6fa6fcae6](https://github.com/04Varsha/FULL_ADDER_SUBTRACTOR/assets/149035374/69b5d850-ba92-48c8-9eaa-3765ec2bb3a7)
 
 
 **Result:**
