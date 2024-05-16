@@ -63,8 +63,8 @@ Full subtractor
 
 **Program:**
 
-Developed by:Abinaya.A
-Reg no:212223040003
+Developed by:gajapathi.j
+Reg no:212222053002
 
 
 ```
